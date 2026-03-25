@@ -1,0 +1,48 @@
+{
+  "name": "playwright-cucumber-banking",
+  "version": "1.0.0",
+  "description": "Playwright + TypeScript + Cucumber UI automation (GlobalSQA XYZ Bank demo)",
+  "private": true,
+  "scripts": {
+    "postinstall": "playwright install chromium",
+    "pretest": "bash scripts/exec-node.sh scripts/ensure-dirs.mjs",
+    "test": "cross-env FORCE_COLOR=1 cucumber-js --config cucumber.json",
+    "test:ci": "bash scripts/exec-node.sh scripts/clean-allure.mjs results && cross-env FORCE_COLOR=1 CI=true cucumber-js --config cucumber-ci.json",
+    "test:headed": "cross-env FORCE_COLOR=1 HEADED=true cucumber-js --config cucumber.json",
+    "test:headless": "cross-env FORCE_COLOR=1 HEADED=false cucumber-js --config cucumber.json",
+    "test:smoke": "cross-env FORCE_COLOR=1 cucumber-js --config cucumber.json --tags \"@smoke\"",
+    "test:regression": "cross-env FORCE_COLOR=1 cucumber-js --config cucumber.json --tags \"@regression\"",
+    "test:withdrawal": "cross-env FORCE_COLOR=1 cucumber-js --config cucumber.json --tags \"@withdrawal\"",
+    "test:negative": "cross-env FORCE_COLOR=1 cucumber-js --config cucumber.json --tags \"@negative\"",
+    "test:retry": "cross-env FORCE_COLOR=1 cucumber-js --config cucumber.json --retry 1",
+    "report:generate": "bash scripts/exec-node.sh scripts/generate-allure.mjs",
+    "report:generate:docker": "bash scripts/exec-node.sh scripts/generate-allure.mjs --docker",
+    "report:open": "NO_OPEN=1 bash scripts/exec-node.sh scripts/open-latest-allure-server-node.mjs",
+    "report:browse": "npm run report:open",
+    "report:open:file": "bash scripts/exec-node.sh scripts/open-allure-html.mjs",
+    "report:all": "npm run report:generate && npm run report:open",
+    "report:ci": "npm run test:ci && npm run report:generate && npm run report:open",
+    "clean:allure": "bash scripts/exec-node.sh scripts/clean-allure.mjs both"
+  },
+  "keywords": [
+    "playwright",
+    "cucumber",
+    "typescript",
+    "bdd",
+    "allure"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@cucumber/cucumber": "^10.9.0",
+    "@cucumber/pretty-formatter": "^1.0.1",
+    "@playwright/test": "^1.49.0",
+    "@types/node": "^22.10.0",
+    "allure-commandline": "^2.32.0",
+    "allure-cucumberjs": "^3.2.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.7",
+    "playwright": "^1.49.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
+  }
+}

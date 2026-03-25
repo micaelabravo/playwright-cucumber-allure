@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "lib": ["ES2022"],
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "declaration": false,
+    "sourceMap": true,
+    "outDir": "dist",
+    "rootDir": ".",
+    "baseUrl": ".",
+    "types": ["node"]
+  },
+  "include": [
+    "config/**/*.ts",
+    "fixtures/**/*.ts",
+    "helper/**/*.ts",
+    "hooks/**/*.ts",
+    "objects/**/*.ts",
+    "pages/**/*.ts",
+    "steps/**/*.ts",
+    "support/**/*.ts",
+    "scripts/**/*.ts"
+  ],
+  "exclude": ["node_modules", "dist", "reports"],
+  "ts-node": {
+    "transpileOnly": true
+  }
+}

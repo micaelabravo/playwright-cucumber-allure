@@ -1,0 +1,20 @@
+{
+  "default": {
+    "paths": ["features/**/*.feature"],
+    "requireModule": ["ts-node/register/transpile-only"],
+    "require": [
+      "support/playwright-env.ts",
+      "support/setup.ts",
+      "hooks/**/*.ts",
+      "steps/**/*.ts"
+    ],
+    "format": [
+      "@cucumber/pretty-formatter",
+      "json:reports/cucumber.json"
+    ],
+    "formatOptions": {
+      "snippetInterface": "async-await",
+      "colorsEnabled": true
+    }
+  }
+}
