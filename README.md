@@ -31,8 +31,8 @@ cp .env.example .env   # optional; defaults work without it
 
 | Command | What it does |
 |--------|----------------|
-| `npm run test` | Run all features: **terminal output** + `reports/cucumber.json`. **Browser window** opens locally by default. |
-| `npm run test:ci` | Like tests + **Allure** raw results in `reports/allure-results`. Clears old results first (`clean-allure.mjs results`). Headless when `CI=true`. |
+| `npm run test` | Run all features: **terminal output** + `reports/cucumber.json`. **Browser window** opens locally by default. Includes **1 automatic retry** for failed scenarios. |
+| `npm run test:ci` | Like tests + **Allure** raw results in `reports/allure-results`. Clears old results first (`clean-allure.mjs results`). Headless when `CI=true`. Includes **1 automatic retry** for failed scenarios. |
 | `npm run test:headed` / `npm run test:headless` | Force visible or headless browser for `npm run test`. |
 | `npm run test:smoke` | Only scenarios tagged `@smoke`. |
 | `npm run test:regression` | Only `@regression`. |
@@ -84,6 +84,8 @@ If you see *Unable to locate a Java Runtime*, install a JDK and open a new termi
 ## IDE / Cursor note
 
 Some sandboxes set `PLAYWRIGHT_BROWSERS_PATH` to a folder without browsers. The project loads **`support/playwright-env.ts` first** (see `cucumber.json`) and unsets that path when it looks like a broken Cursor cache so Playwright uses its normal install.
+
+**Gherkin syntax color in `.feature` files** comes from an editor extension, not from the repo alone. Install the workspace-recommended extension **Cucumber (Gherkin) Full Support** (`alexkrechik.cucumberautocomplete`), then reload the window. The project maps `*.feature` to language id **`feature`** (see `.vscode/settings.json`). If the file still looks like plain text, use the command palette: **Change Language Mode** → pick **feature** / **Gherkin**. If you use the **official Cucumber** extension instead (`cucumberopen.cucumber-official`), change that association to **`cucumber`** so it matches that extension’s language id.
 
 ---
 

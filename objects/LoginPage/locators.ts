@@ -26,4 +26,7 @@ export default class LoginPageLocators {
       name: LoginPageLocators.labels.loginButton,
       exact: true,
     });
-}
+  }
+
+
+

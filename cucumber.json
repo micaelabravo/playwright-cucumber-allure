@@ -1,6 +1,7 @@
 {
   "default": {
     "paths": ["features/**/*.feature"],
+    "retry": 1,
     "requireModule": ["ts-node/register/transpile-only"],
     "require": [
       "support/playwright-env.ts",

@@ -4,7 +4,7 @@
   "description": "Playwright + TypeScript + Cucumber UI automation (GlobalSQA XYZ Bank demo)",
   "private": true,
   "scripts": {
-    "postinstall": "playwright install chromium",
+    "postinstall": "playwright install chromium firefox webkit",
     "pretest": "bash scripts/exec-node.sh scripts/ensure-dirs.mjs",
     "test": "cross-env FORCE_COLOR=1 cucumber-js --config cucumber.json",
     "test:ci": "bash scripts/exec-node.sh scripts/clean-allure.mjs results && cross-env FORCE_COLOR=1 CI=true cucumber-js --config cucumber-ci.json",

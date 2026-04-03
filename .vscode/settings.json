@@ -1,0 +1,13 @@
+{
+  "files.associations": {
+    "*.feature": "cucumber"
+  },
+  "cucumber.features": [
+    "features/**/*.feature"
+  ],
+  "cucumber.glue": [
+    "steps/**/*.ts",
+    "hooks/**/*.ts",
+    "support/**/*.ts"
+  ]
+}
